@@ -1,6 +1,7 @@
 package com.example.servlet;
 
 import java.io.IOException;
+import java.util.LinkedList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,9 +17,12 @@ public class deleteServlet extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         String name = request.getParameter("id");
         response.setContentType("text/html;charset=utf-8");
-
+        System.out.println(name);
         userRepository.deleteUser(name);
 
+        LinkedList<User> userList = userRepository.getusers();
+
+        for (User u : userList) System.out.println(u);
         response.sendRedirect("lists");
     }
 }
