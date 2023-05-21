@@ -12,28 +12,37 @@ import javax.servlet.http.HttpServletResponse;
 
 
 public class InsertID extends HttpServlet {
-	 private final UserRepository userRepository = UserRepository.getInstance();
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
+    private final UserRepository userRepository = UserRepository.getInstance();
 
-		String name = request.getParameter("id");
-		userRepository.add(name);
+    protected void doGet(HttpServletRequest request,
+                         HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
 
-		response.setContentType("text/html;charset=utf-8");
+        String name = request.getParameter("id");
 
-		PrintWriter pw = response.getWriter();
-
-		pw.println("<html>");
-		pw.println("<head></head>");
-		pw.println("<body>");
-		pw.println( name + "님! 성공적으로 가입되었습니다.<br/>");
-		pw.println("<a href='index.html'> 돌아가기 </a>");
-		pw.println("</body>");
-		pw.println("</html>");
+        PrintWriter pw = response.getWriter();
 
 
-	}
+        response.setContentType("text/html;charset=utf-8");
+        if (name == null || name.isEmpty()) {
+            pw.println("<html>");
+            pw.println("<head></head>");
+            pw.println("<body>");
+            pw.println("실패<br/>");
+            pw.println("<a href='index.html'> 돌아가기 </a>");
+            pw.println("</body>");
+            pw.println("</html>");
 
+        } else {
+            userRepository.add(name);
+            pw.println("<html>");
+            pw.println("<head></head>");
+            pw.println("<body>");
+            pw.println(name + "님! 성공적으로 가입되었습니다.<br/>");
+            pw.println("<a href='index.html'> 돌아가기 </a>");
+            pw.println("</body>");
+            pw.println("</html>");
+        }
 
+    }
 }

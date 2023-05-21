@@ -9,18 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 
 
 public class deleteServlet extends HttpServlet {
-	   private final UserRepository userRepository = UserRepository.getInstance();
+    private final UserRepository userRepository = UserRepository.getInstance();
 
-		protected void doGet(HttpServletRequest request,
-				HttpServletResponse response) throws ServletException, IOException {
-			  request.setCharacterEncoding("utf-8");
-		        String name = request.getParameter("id");
-		        response.setContentType("text/html;charset=utf-8");
+    protected void doGet(HttpServletRequest request,
+                         HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
+        String name = request.getParameter("id");
+        response.setContentType("text/html;charset=utf-8");
 
-		        userRepository.deleteUser(name);
+        userRepository.deleteUser(name);
 
-		        response.sendRedirect("lists");
-		}
-
-
+        response.sendRedirect("lists");
+    }
 }

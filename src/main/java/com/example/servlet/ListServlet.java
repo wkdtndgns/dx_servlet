@@ -23,10 +23,14 @@ public class ListServlet extends HttpServlet {
         out.println("<html>");
         out.println("<head>");
         out.println("<meta charset=\"utf-8R\">");
+        out.println("    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css\">\n" +
+                "    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css\">\n" +
+                "    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js\"></script>");
+
         out.println("</head>");
         out.println("<body>");
-
-        out.println("<table \"border:5px outset pink;\">\n" +
+        out.println("<div class=\"bs-example col-sm-4\" style=\" margin: 20px;\" > ");
+        out.println("<table class=\"table\" \"border:5px outset pink;\">\n" +
                 "    <thead>\n" +
                 "    <th>아이디</th>\n" +
                 "    <th>삭제</th>\n" +
@@ -51,14 +55,16 @@ public class ListServlet extends HttpServlet {
             out.println("</tr>");
         }
         out.println("</table>");
+        out.println("</div>");
         out.println("<br>");
-        out.println("<a href='index.html'> 돌아가기 </a>");
+
+        out.println("<div><a href='index.html'> 돌아가기 </a></div>");
 
         out.println("</body>");
         out.println("<html>");
 
         out.close();
 
-	}
+    }
 
 }
