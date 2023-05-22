@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 public class UpdateServlet extends HttpServlet {
     private final UserRepository userRepository = UserRepository.getInstance();
 
+    // 수정필요
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
