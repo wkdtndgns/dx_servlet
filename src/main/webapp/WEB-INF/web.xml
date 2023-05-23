@@ -137,4 +137,24 @@
 
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>bookdelete</servlet-name>
+        <servlet-class>Controller.Delete.BookDelete</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>bookdelete</servlet-name>
+        <url-pattern>/delete</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>bookUpdate</servlet-name>
+        <servlet-class>Controller.Update.BookUpdate</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>bookUpdate</servlet-name>
+        <url-pattern>/bookUpdate</url-pattern>
+    </servlet-mapping>
+
 </web-app>
