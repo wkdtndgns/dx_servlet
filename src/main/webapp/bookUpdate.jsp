@@ -58,32 +58,29 @@
     <h1>도서 수정</h1>
     <form id="frmRegister" action="/bookUpdate?id=<%= idParam %>" method="post">
         <div>
-            <label class="control-label" >카테고리 1:</label>
-
-            <select id="category1Select"  class="form-control" name="category1" value="<%= category1 %>required>
-                <option value="">카테고리 선택</option>
-                <option value="10">소설</option>
-                <option value="20">역사</option>
-                <option value="30">자기개발</option>
-                <option value="40">종교</option>
+            <label class="control-label">Category 1:</label>
+            <select id="category1Select" class="form-control" name="category1" required>
+                <option value="10" <%= String.valueOf(category1).equals("10") ? "selected" : "" %>>소설</option>
+                <option value="20" <%= String.valueOf(category1).equals("20") ? "selected" : "" %>>역사</option>
+                <option value="30" <%= String.valueOf(category1).equals("30") ? "selected" : "" %>>자기개발</option>
+                <option value="40" <%= String.valueOf(category1).equals("40") ? "selected" : "" %>>종교</option>
             </select>
-
         </div>
+
         <div>
-            <label class="control-label" >카테고리 2:</label>
-
-            <select id="categorySelect"  class="form-control" name="category2" value="<%= category2 %>required>
-                <option value="">카테고리 선택</option>
-                <option value="11">한국소설</option>
-                <option value="12">서양소설</option>
-                <option value="21">한국역사</option>
-                <option value="22">세계역사</option>
-                <option value="31">개발</option>
-                <option value="32">자신감개발</option>
-                <option value="41">한국종교</option>
-                <option value="42">서양종교</option>
+            <label class="control-label">Category 2:</label>
+            <select id="categorySelect" class="form-control" name="category2" required>
+                <option value="11" <%= String.valueOf(category2).equals("11") ? "selected" : "" %>>한국소설</option>
+                <option value="12" <%= String.valueOf(category2).equals("12") ? "selected" : "" %>>서양소설</option>
+                <option value="21" <%= String.valueOf(category2).equals("21") ? "selected" : "" %>>한국역사</option>
+                <option value="22" <%= String.valueOf(category2).equals("22") ? "selected" : "" %>>세계역사</option>
+                <option value="31" <%= String.valueOf(category2).equals("31") ? "selected" : "" %>>개발</option>
+                <option value="32" <%= String.valueOf(category2).equals("32") ? "selected" : "" %>>자신감개발</option>
+                <option value="41" <%= String.valueOf(category2).equals("41") ? "selected" : "" %>>한국종교</option>
+                <option value="42" <%= String.valueOf(category2).equals("42") ? "selected" : "" %>>서양종교</option>
             </select>
         </div>
+
         <div>
             <label class="control-label" for="bookName">도서명:</label>
             <input type="text" class="form-control" id="bookName" name="book_name" value="<%= bookName %>" required>
