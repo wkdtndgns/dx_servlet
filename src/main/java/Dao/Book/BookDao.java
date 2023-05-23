@@ -1,6 +1,7 @@
 package Dao.Book;
 
 import Jdbc.JdbcComm;
+import Service.List.Vo.BookListParamVo;
 
 import java.math.BigDecimal;
 import java.sql.*;
@@ -8,10 +9,26 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 public class BookDao {
-    public LinkedList<Book> getBook() throws SQLException {
+    public LinkedList<Book> getBook(BookListParamVo pv) throws SQLException {
         JdbcComm jdbc = new JdbcComm();
-        Statement statement = jdbc.getConnection().createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT book_id,category_1,category_2, book_name,author FROM t_book" );
+        String query = "SELECT book_id, category_1, category_2, qty, book_name, author\n" +
+                "FROM t_book\n" +
+                "WHERE book_name LIKE ?" +
+                "   OR author LIKE ?" +
+                "   OR summary LIKE ?" +
+                " ORDER BY book_id DESC " +
+                "  LIMIT ?, ?;";
+
+
+        PreparedStatement statement = jdbc.getConnection().prepareStatement(query);
+        statement.setString(1, "%" + pv.getSearch() + "%");
+        statement.setString(2, "%" + pv.getSearch() + "%");
+        statement.setString(3, "%" + pv.getSearch() + "%");
+        statement.setInt(4, (pv.getPage() - 1) * pv.getLimit());
+        statement.setInt(5, pv.getLimit());
+
+        System.out.println(statement);
+        ResultSet resultSet = statement.executeQuery();
         LinkedList<Book> liBook = new LinkedList<>();
 
         while (resultSet.next()) {
@@ -21,6 +38,7 @@ public class BookDao {
             book.setCategory2(resultSet.getInt("category_2"));
             book.setBookName(resultSet.getString("book_name"));
             book.setAuthor(resultSet.getString("author"));
+            book.setQty(resultSet.getInt("qty"));
 
             liBook.add(book);
         }
@@ -30,12 +48,32 @@ public class BookDao {
         return liBook;
     }
 
+    public int getBookTotal() throws SQLException {
+        JdbcComm jdbc = new JdbcComm();
+        int count = 0;
+        String query = "SELECT COUNT(*) AS 'count' " +
+                "FROM t_book;";
+
+
+        PreparedStatement statement = jdbc.getConnection().prepareStatement(query);
+        System.out.println(statement);
+
+        ResultSet resultSet = statement.executeQuery();
+        if (resultSet.next()) {
+            count = resultSet.getInt("count");
+        }
+        resultSet.close();
+        statement.close();
+        jdbc.closeConnection();
+        return count;
+    }
+
     public int insert(Book book) throws SQLException {
         JdbcComm jdbc = new JdbcComm();
         Connection connection = jdbc.getConnection();
 
-        String insertQuery = "INSERT INTO t_book (category_1, category_2, book_name, summary, author, publisher, purchase_price, selling_price, qty, img, page, edition) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String insertQuery = "INSERT INTO t_book (category_1, category_2, book_name, summary, author, publisher, purchase_price, selling_price, qty, page) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         PreparedStatement statement = connection.prepareStatement(insertQuery);
         statement.setInt(1, book.getCategory1());
@@ -46,11 +84,10 @@ public class BookDao {
         statement.setString(6, book.getPublisher());
         statement.setBigDecimal(7, book.getPurchasePrice());
         statement.setBigDecimal(8, book.getSellingPrice());
-        statement.setInt(10, book.getQty());
-        statement.setString(11, book.getImg());
-        statement.setInt(12, book.getPage());
-        statement.setInt(13, book.getEdition());
+        statement.setInt(9, book.getQty());
+        statement.setInt(10, book.getPage());
 
+        System.out.println(statement);
         int result = statement.executeUpdate();
         statement.close();
         jdbc.closeConnection();

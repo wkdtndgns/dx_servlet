@@ -2,6 +2,8 @@ package Dao.Book;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.HashMap;
+import java.util.Map;
 //import java.sql.Timestamp;
 
 public class Book {
@@ -23,6 +25,27 @@ public class Book {
     private char isDeleted;
     private Timestamp deletedTs;
 
+    Map<Integer, String> mapCategory1 = new HashMap<Integer, String>() {{
+        put(10, "소설");
+        put(20, "역사");
+        put(30, "자기개발");
+        put(40, "종교");
+        // 필요한 다른 카테고리를 추가할 수 있습니다.
+    }};
+
+    Map<Integer, String> mapCategory2 = new HashMap<Integer, String>() {{
+        put(11, "한국소설");
+        put(12, "서양소설");
+        put(21, "한국역사");
+        put(22, "세계역사");
+        put(31, "개발");
+        put(32, "자신감개발");
+        put(41, "한국종교");
+        put(42, "서양종교");
+
+        // 필요한 다른 카테고리를 추가할 수 있습니다.
+    }};
+
     // 생성자, getter/setter 메서드 등 생략
 
     public int getBookId() {
@@ -43,6 +66,13 @@ public class Book {
 
     public int getCategory2() {
         return category2;
+    }
+    public String getCategory1Name() {
+        return mapCategory1.get(category1);
+    }
+
+    public String getCategory2Name() {
+        return mapCategory2.get(category2);
     }
 
     public void setCategory2(int category2) {
