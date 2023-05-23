@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.LinkedList" %>
 <%@ page import="Dao.Book.*" %>
-<% LinkedList<Book> bookList = (LinkedList<Book>) request.getAttribute("userList"); %>
+<% LinkedList<Book> bookList = (LinkedList<Book>) request.getAttribute("bookList"); %>
 
 <!DOCTYPE html>
 <html>
@@ -53,8 +53,8 @@
             <thead>
             <tr>
                 <th>#</th>
-                <th>id</th>
-                <th>삭제</th>
+                <th>카테고리1</th>
+                <th>카테고리2</th>
             </tr>
             </thead>
             <tbody>

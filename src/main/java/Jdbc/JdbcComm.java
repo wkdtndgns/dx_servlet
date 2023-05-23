@@ -7,9 +7,16 @@ public class JdbcComm {
     String userName = "root";
     String password = "1234";
 
-    Connection connection = DriverManager.getConnection(url, userName, password);
+    Connection connection;
 
     public JdbcComm() throws SQLException {
+        try {
+            Class.forName("com.mysql.jdbc.Driver"); // or com.mysql.cj.jdbc.Driver for newer versions
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            throw new SQLException(e);
+        }
+        connection = DriverManager.getConnection(url, userName, password);
     }
 
     public Connection getConnection() {
@@ -17,6 +24,8 @@ public class JdbcComm {
     }
 
     public void closeConnection() throws SQLException {
-        connection.close();
+        if (connection != null && !connection.isClosed()) {
+            connection.close();
+        }
     }
 }
