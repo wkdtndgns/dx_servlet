@@ -37,3 +37,11 @@ VALUES (10, 11, '한국소설 1', '한국소설 1의 요약', '한국소설 작�
 
 SELECT *
 FROM t_book;
+
+CREATE TABLE book_review (
+                             id INT AUTO_INCREMENT PRIMARY KEY,
+                             user_name VARCHAR(255) NOT NULL,
+                             book_name VARCHAR(255) NOT NULL,
+                             book_id INT NOT NULL,
+                             rate INT NOT NULL
+);
