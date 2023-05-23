@@ -102,6 +102,10 @@
                 </td>
                 <td><%= book.getQty() %>
                 </td>
+                <td><a href='delete?id=<%= book.getBookId() %>'>삭제</a></td>
+<%--                <td><a href='update?id=<%= book.getBookId() %>'> 수정</a></td>--%>
+                <td><a href='bookUpdate?id=<%= book.getBookId() %>'>수정</a></td>
+
             </tr>
             <% index--;
             }%>

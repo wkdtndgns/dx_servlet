@@ -186,6 +186,14 @@ public class BookDao {
         return false;
     }
 
+    public void deleted(int bookId) throws SQLException {
+        JdbcComm jdbc = new JdbcComm();
+        Statement statement = jdbc.getConnection().createStatement();
+
+        String query = "DELETE FROM t_book WHERE book_id = " + bookId;
+        statement.execute(query);
+    }
+
     // 할인율 적용시켜서 Selling price 갱신
     public void applyDiscount(int bookId) throws SQLException {
         JdbcComm jdbc = new JdbcComm();
@@ -243,6 +251,64 @@ public class BookDao {
         statement.close();
         jdbc.getConnection();
 //        scanner.close();
+    }
+    public Book getBookInfo(int book_id) throws SQLException {
+        JdbcComm jdbc = new JdbcComm();
+        String query = "SELECT category_1, category_2, book_name, summary, author," +
+                " publisher, purchase_price, selling_price, qty, page " +
+                "FROM t_book WHERE book_id = " + book_id;
+
+        Statement statement = jdbc.getConnection().createStatement();
+        ResultSet resultSet = statement.executeQuery(query);
+
+        Book book = new Book();
+        if (resultSet.next()) { // Move the cursor to the first row
+            book.setCategory1(resultSet.getInt("category_1"));
+            book.setCategory2(resultSet.getInt("category_2"));
+            book.setBookName(resultSet.getString("book_name"));
+            book.setAuthor(resultSet.getString("author"));
+            book.setSummary(resultSet.getString("summary"));
+            book.setPublisher(resultSet.getString("publisher"));
+            book.setPurchasePrice(resultSet.getBigDecimal("purchase_price"));
+            book.setSellingPrice(resultSet.getBigDecimal("selling_price"));
+            book.setQty(resultSet.getInt("qty"));
+            book.setPage(resultSet.getInt("page"));
+        }
+
+        return book;
+    }
+
+    public void updateBook(Book book, int bookId) throws SQLException {
+        JdbcComm jdbc = new JdbcComm();
+        String query = "UPDATE t_book SET " +
+                "category_1 = ?, " +
+                "category_2 = ?, " +
+                "book_name = ?, " +
+                "summary = ?, " +
+                "author = ?, " +
+                "publisher = ?, " +
+                "purchase_price = ?, " +
+                "selling_price = ?, " +
+                "qty = ?, " +
+                "page = ? " +
+                "WHERE book_id = " + bookId;
+
+        Connection connection = jdbc.getConnection();
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setInt(1, book.getCategory1());
+        statement.setInt(2, book.getCategory2());
+        statement.setString(3, book.getBookName());
+        statement.setString(4, book.getSummary());
+        statement.setString(5, book.getAuthor());
+        statement.setString(6, book.getPublisher());
+        statement.setBigDecimal(7, book.getPurchasePrice());
+        statement.setBigDecimal(8, book.getSellingPrice());
+        statement.setInt(9, book.getQty());
+        statement.setInt(10, book.getPage());
+
+        statement.executeUpdate();
+        statement.close();
+        connection.close();
     }
 
     // Book의 제목, 내용, 저자 변경
@@ -312,4 +378,5 @@ public class BookDao {
         jdbc.closeConnection();
         return result;
     }
+
 }
