@@ -5,6 +5,10 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <context-param>
+        <param-name>contextPath</param-name>
+        <param-value>/</param-value>
+    </context-param>
 
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
@@ -44,6 +48,17 @@
     <servlet-mapping>
         <servlet-name>BookList</servlet-name>
         <url-pattern>/bookList</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>BookRegister</servlet-name>
+        <servlet-class>Controller.Register.BookRegister</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>BookRegister</servlet-name>
+        <url-pattern>/bookRegister</url-pattern>
     </servlet-mapping>
 
     <servlet>
