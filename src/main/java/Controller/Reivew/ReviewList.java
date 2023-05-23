@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 public class ReviewList extends HttpServlet  {
 
@@ -22,9 +23,17 @@ public class ReviewList extends HttpServlet  {
 
         try {
             map = reviewService.getMapNameRate();
-            request.setAttribute("map", map);
+            Map<String, Integer> resultMap = new HashMap<>();
+
+            for (Map.Entry<String, Integer> entry : map.entrySet()) {
+                if (entry.getValue() != 0) {
+                    resultMap.put(entry.getKey(), entry.getValue());
+                }
+            }
+
+            request.setAttribute("map", resultMap);
             System.out.println(map);
-            request.getRequestDispatcher("/bookListWithReview.jsp").forward(request, response);
+            request.getRequestDispatcher("/reviewList.jsp").forward(request, response);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

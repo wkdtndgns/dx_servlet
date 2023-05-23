@@ -37,7 +37,7 @@ public class BookReviewDao {
         Statement statement = jdbc.getConnection().createStatement();
         ResultSet resultSet = null;
         HashMap<String, Integer> map = new HashMap<>();
-        String query = "SELECT DISTINCT book_name FROM t_book";
+        String query = "SELECT DISTINCT book_name FROM t_book; ";
         LinkedList<String> liBook = new LinkedList<>();
 
         try {
@@ -48,7 +48,7 @@ public class BookReviewDao {
             }
 
             for (String bookName : liBook) {
-                query = "SELECT`` AVG(rate) AS avg FROM book_review WHERE book_name = '" + bookName + "'";
+                query = "SELECT AVG(rate) AS avg FROM book_review WHERE book_name = '" + bookName + "'";
                 resultSet = statement.executeQuery(query);
                 if (resultSet.next()) {
                     map.put(bookName, resultSet.getInt("avg"));

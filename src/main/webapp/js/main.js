@@ -12,7 +12,7 @@ $(document).ready(function () {
             { text: "도서 등록", href: "/bookRegister" },
             { text: "도서 검색", href: "/bookList" },
             { text: "도서 대출", href: "/11" },
-            { text: "도서 리뷰", href: "/11" },
+            { text: "도서 리뷰", href: "/reviewList" },
             { text: "도서 판매", href: "/11" }
         ];
 

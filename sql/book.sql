@@ -38,10 +38,20 @@ VALUES (10, 11, '한국소설 1', '한국소설 1의 요약', '한국소설 작�
 SELECT *
 FROM t_book;
 
-CREATE TABLE book_review (
-                             id INT AUTO_INCREMENT PRIMARY KEY,
-                             user_name VARCHAR(255) NOT NULL,
-                             book_name VARCHAR(255) NOT NULL,
-                             book_id INT NOT NULL,
-                             rate INT NOT NULL
+CREATE TABLE book_review
+(
+    id        INT AUTO_INCREMENT PRIMARY KEY,
+    user_name VARCHAR(255) NOT NULL,
+    book_name VARCHAR(255) NOT NULL,
+    book_id   INT          NOT NULL,
+    rate      INT          NOT NULL
 );
+
+
+INSERT INTO book_review (user_name, book_name, book_id, rate)
+VALUES ('John Doe', '한국소설 1', 1, 4),
+       ('John Doe', '한국소설 2', 1, 1),
+       ('John Doe', '서양소설 1', 1, 2),
+       ('John Doe', '한국역사 1', 1, 3),
+       ('John Doe', '세계역사 1', 1, 4),
+       ('John Doe', '자기개발 1', 1, 4);

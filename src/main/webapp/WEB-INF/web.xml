@@ -68,7 +68,7 @@
 
     <servlet-mapping>
         <servlet-name>ReviewList</servlet-name>
-        <url-pattern>/ReviewList</url-pattern>
+        <url-pattern>/reviewList</url-pattern>
     </servlet-mapping>
 
     <servlet>

@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: wkdtn
   Date: 2023-05-23
-  Time: 오후 2:12
+  Time: 오후 5:43
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -11,15 +11,14 @@
 <%@ page import="java.util.HashMap" %>
 <% HashMap<String, Integer> map = (HashMap<String, Integer>) request.getAttribute("map"); %>
 
-<!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <meta charset="utf-8">
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/main.js"></script>
+    <meta charset="utf-8">
     <title> 리스트 </title>
 </head>
 <body>
@@ -38,16 +37,30 @@
                 <a class="navbar-brand" href="#">도서관리</a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav" id="menu">
 
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
     </nav>
 </div>
-<div class="container" style="margin-top: 83px;">
 
-    <div class="bs-example col-sm-4" style="margin-top: 10px;" data-example-id="simple-table">
+<div class="container" style="margin-top: 83px;">
+    <form class="form-inline" action="/bookList">
+        <div class="search" style="margin-top: 10px; margin-bottom: 10px;">
+            <div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" name="search" class="form-control" id="exampleInputAmount" placeholder="검색">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">검색</button>
+            </div>
+            <div>
+            </div>
+        </div>
+    </form>
+    <div class="table-responsive">
         <table class="table">
             <thead>
             <tr>
@@ -59,7 +72,8 @@
             <!-- Inside the table's <tbody> tag -->
             <tbody>
             <% int index = 1;
-                for (String name : map.keySet()) { %>
+                for (String name : map.keySet()) {
+            %>
             <tr>
                 <th scope="row"><%= index++ %></th>
                 <td><%= name %></td>
@@ -69,7 +83,6 @@
             </tbody>
         </table>
     </div>
-    <div><a href='index.html'> 돌아가기 </a></div>
 </div>
 </body>
 </html>
