@@ -7,11 +7,9 @@ public class UserRepository {
     private static final UserRepository instance = new UserRepository();
 
     private UserRepository() {
-        userRepository.add(new User("윤서"));
+        userRepository.add(new User("승우"));
         userRepository.add(new User("승훈"));
-        userRepository.add(new User("민수"));
-        userRepository.add(new User("짱구"));
-
+        userRepository.add(new User("무광"));
     }
 
     public static UserRepository getInstance() {

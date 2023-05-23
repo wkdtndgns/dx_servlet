@@ -17,7 +17,7 @@ public class InsertID extends HttpServlet {
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
-        String name = request.getParameter("id");
+        String name = request.getParameter("name");
         response.setContentType("text/html;charset=utf-8");
         PrintWriter pw = response.getWriter();
 

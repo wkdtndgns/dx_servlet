@@ -30,7 +30,6 @@
             <th>#</th>
             <th>id</th>
             <th>삭제</th>
-            <th>수정</th>
         </tr>
         </thead>
         <tbody>
@@ -43,7 +42,7 @@
             </th>
             <td><%= user.getName() %></td>
             <td><a href='deletes?id=<%=user.getName()%>'>삭제</a></td>
-            <td><a href='update.html?id=<%=  user.getName()  %>'>수정</a></td>
+
         </tr>
         <% }%>
         </tbody>

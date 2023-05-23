@@ -1,17 +1,26 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: wkdtn
+  Date: 2023-05-23
+  Time: 오후 2:12
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.util.LinkedList" %>
+<%@ page import="Dao.Book.*" %>
+<% LinkedList<Book> bookList = (LinkedList<Book>) request.getAttribute("userList"); %>
+
 <!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/js/main.js"></script>
-
     <meta charset="utf-8">
-    <title> Main </title>
+    <title> 리스트 </title>
 </head>
-
 <body>
+
 <div id="divNav">
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -39,25 +48,37 @@
 </div>
 <div class="container" style="margin-top: 83px;">
 
-
-    <div style=" margin-top: 10px; margin-left: 10px;">
-        <h1> 무엇을 도와드릴까요? </h1>
-
-        <div class="col-sm-4" style="margin-top: 10px;">
-            <div class="list-group">
-                <a href="insert.html" class="list-group-item">회원가입</a>
-                <a href="lists" class="list-group-item">회원목록</a>
-            </div>
-        </div>
+    <div class="bs-example col-sm-4" style="margin-top: 10px;" data-example-id="simple-table">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>id</th>
+                <th>삭제</th>
+            </tr>
+            </thead>
+            <tbody>
+            <%
+                int index = 1;
+                for (Book book : bookList) {
+            %>
+            <tr>
+                <th scope="row"><%= index++ %>
+                </th>
+                <td><%= book.getCategory1() %>
+                </td>
+                <td><%= book.getCategory2() %>
+                </td>
+                <td><%= book.getBookName() %>
+                </td>
+                <td><%= book.getAuthor() %>
+                </td>
+            </tr>
+            <% }%>
+            </tbody>
+        </table>
     </div>
-
-</div><!-- /.container -->
-
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
+    <div><a href='index.html'> 돌아가기 </a></div>
+</div>
 </body>
 </html>

@@ -35,6 +35,17 @@
         <url-pattern>/lists</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+        <servlet-name>BookList</servlet-name>
+        <servlet-class>Controller.List.BookList</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>BookList</servlet-name>
+        <url-pattern>/bookList</url-pattern>
+    </servlet-mapping>
+
     <servlet>
         <servlet-name>delete</servlet-name>
         <servlet-class>com.example.servlet.deleteServlet</servlet-class>
