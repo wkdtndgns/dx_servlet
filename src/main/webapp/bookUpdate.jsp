@@ -2,6 +2,8 @@
 <%@ page import="Dao.Book.*" %>
 <%@ page import="java.math.BigDecimal" %>
 <%
+    int category1 = (int) request.getAttribute("category_1");
+    int category2 = (int) request.getAttribute("category_2");
     String bookName = (String) request.getAttribute("book_name");
     String summary = (String) request.getAttribute("summary");
     String author = (String) request.getAttribute("author");
@@ -57,7 +59,7 @@
         <div>
             <label class="control-label" >카테고리 1:</label>
 
-            <select id="category1Select"  class="form-control" name="category1" required>
+            <select id="category1Select"  class="form-control" name="category1" value="<%= category1 %>required>
                 <option value="">카테고리 선택</option>
                 <option value="10">소설</option>
                 <option value="20">역사</option>
@@ -69,7 +71,7 @@
         <div>
             <label class="control-label" >카테고리 2:</label>
 
-            <select id="categorySelect"  class="form-control" name="category2" required>
+            <select id="categorySelect"  class="form-control" name="category2" value="<%= category2 %>required>
                 <option value="">카테고리 선택</option>
                 <option value="11">한국소설</option>
                 <option value="12">서양소설</option>

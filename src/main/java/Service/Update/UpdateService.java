@@ -12,7 +12,7 @@ public class UpdateService {
     public Book getInfo(int id) throws SQLException {
         return bookDao.getBookInfo(id);
     }
-    public void update(Book book) throws SQLException{
-        bookDao.updateBook(book);
+    public void update(Book book, int id) throws SQLException{
+        bookDao.updateBook(book, id);
     }
 }
