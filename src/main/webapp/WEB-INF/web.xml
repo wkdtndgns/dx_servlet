@@ -38,12 +38,22 @@
 
     <servlet>
         <servlet-name>BookList</servlet-name>
-        <servlet-class>Controller.List.BookList</servlet-class>
+        <servlet-class>Controller.BookList</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>BookList</servlet-name>
         <url-pattern>/bookList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ReviewList</servlet-name>
+        <servlet-class>Controller.Reivew.ReviewList</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ReviewList</servlet-name>
+        <url-pattern>/ReviewList</url-pattern>
     </servlet-mapping>
 
     <servlet>
