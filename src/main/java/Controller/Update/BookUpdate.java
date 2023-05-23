@@ -37,7 +37,8 @@ public class BookUpdate extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        request.setCharacterEncoding("UTF-8");
+        int id = Integer.parseInt(request.getParameter("id"));
         // get the data passed from the form
         String category1Param = request.getParameter("category1");
         int category1 = (category1Param != null && !category1Param.isEmpty()) ? Integer.parseInt(category1Param) : 0;
@@ -77,13 +78,11 @@ public class BookUpdate extends HttpServlet {
 
         // Update book information using UpdateService
         try {
-            updateService.update(book, 1);
+            updateService.update(book, id);
             // If book modification is successful, move to the page containing the success message
             response.sendRedirect("/bookList");
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
-
 }

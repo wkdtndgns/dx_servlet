@@ -12,6 +12,7 @@
     BigDecimal sellingPrice = (BigDecimal) request.getAttribute("selling_price");
     int qty = (int) request.getAttribute("qty");
     int pages = (int) request.getAttribute("page");
+    String idParam = request.getParameter("id");
 %>
 
 <!DOCTYPE html>
@@ -55,7 +56,7 @@
 <div class="container" style="margin-top: 83px;">
 
     <h1>도서 수정</h1>
-    <form id="frmRegister" action="/bookUpdate" method="post">
+    <form id="frmRegister" action="/bookUpdate?id=<%= idParam %>" method="post">
         <div>
             <label class="control-label" >카테고리 1:</label>
 
