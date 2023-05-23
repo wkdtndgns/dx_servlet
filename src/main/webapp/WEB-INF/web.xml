@@ -72,6 +72,36 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>RentList</servlet-name>
+        <servlet-class>Controller.Rent.RentList</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>RentList</servlet-name>
+        <url-pattern>/rentList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RentListHistory</servlet-name>
+        <servlet-class>Controller.Rent.RentListHistory</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>RentListHistory</servlet-name>
+        <url-pattern>/rentListHistory</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ReturnList</servlet-name>
+        <servlet-class>Controller.Rent.ReturnList</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ReturnList</servlet-name>
+        <url-pattern>/returnList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>delete</servlet-name>
         <servlet-class>com.example.servlet.deleteServlet</servlet-class>
     </servlet>

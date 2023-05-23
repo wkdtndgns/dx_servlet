@@ -1,18 +1,16 @@
 <%--
   Created by IntelliJ IDEA.
   User: wkdtn
-  Date: 2023-05-21
-  Time: 오후 10:33
+  Date: 2023-05-23
+  Time: 오후 8:12
   To change this template use File | Settings | File Templates.
 --%>
-
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.LinkedList" %>
-<%@ page import="com.example.servlet.User" %>
-<%-- userList 변수 선언 --%>
-<% LinkedList<User> userList = (LinkedList<User>) request.getAttribute("userList"); %>
-
-<!DOCTYPE html>
+<%@ page import="Dao.Book.*" %>
+<%@ page import="Dao.BookRent.BookRent" %>
+<% LinkedList<BookRent> bookRentList = (LinkedList<BookRent>) request.getAttribute("bookRentList"); %>
 <html>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -23,8 +21,6 @@
     <meta charset="utf-8">
     <title> 리스트 </title>
 </head>
-
-
 <body>
 
 <div id="divNav">
@@ -55,24 +51,34 @@
             <thead>
             <tr>
                 <th>#</th>
-                <th>id</th>
-                <th>삭제</th>
+                <th>사용자명</th>
+                <th>책이름</th>
+                <th>일 연체료</th>
+                <th>연체 종료일</th>
+
             </tr>
             </thead>
             <!-- Inside the table's <tbody> tag -->
             <tbody>
             <%
                 int index = 1;
-                for (User user : userList) {
+                for (BookRent bookRent : bookRentList) {
             %>
             <tr>
-                <th scope="row"><%= index++ %>
+                <th scope="row"><%= index %>
                 </th>
-                <td><%= user.getName() %>
+                <td><%= bookRent.getUser_name() %>
                 </td>
-                <td><a href='deletes?id=<%=user.getName()%>'>삭제</a></td>
+                <td><%= bookRent.getBook_name() %>
+                </td>
+                <td><%= bookRent.getRent_pay() %>
+                </td>
+                <td><%= bookRent.getEnd_date() %>
+                </td>
+
             </tr>
-            <% }%>
+            <% index++;
+            }%>
             </tbody>
         </table>
     </div>

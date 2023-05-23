@@ -46,20 +46,6 @@
 </div>
 
 <div class="container" style="margin-top: 83px;">
-    <form class="form-inline" action="/bookList">
-        <div class="search" style="margin-top: 10px; margin-bottom: 10px;">
-            <div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <input type="text" name="search" class="form-control" id="exampleInputAmount" placeholder="검색">
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary">검색</button>
-            </div>
-            <div>
-            </div>
-        </div>
-    </form>
     <div class="table-responsive">
         <table class="table">
             <thead>

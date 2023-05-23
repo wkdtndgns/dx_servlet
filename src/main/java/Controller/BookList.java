@@ -27,10 +27,11 @@ public class BookList extends HttpServlet {
             blpv.setLimit(10);
 
             // 서비스 호출
+            request.setAttribute("search", search);
             request.setAttribute("bookPage", Integer.parseInt(Page));
             request.setAttribute("limit", Limit);
             request.setAttribute("bookList", listService.getBookList(blpv));
-            request.setAttribute("totalCount", listService.getBookTotal());
+            request.setAttribute("totalCount", listService.getBookTotal(blpv));
             request.getRequestDispatcher("/bookList.jsp").forward(request, response);
         } catch (SQLException e) {
             throw new RuntimeException(e);

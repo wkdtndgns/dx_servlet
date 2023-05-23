@@ -11,6 +11,7 @@
 <% LinkedList<Book> bookList = (LinkedList<Book>) request.getAttribute("bookList"); %>
 <% int totalCount = (int) request.getAttribute("totalCount"); %>
 <% int bookPage = (int) request.getAttribute("bookPage"); %>
+<% String search = request.getAttribute("search").toString(); %>
 
 <% int limit = (int) request.getAttribute("limit"); %>
 <% int totalPage =  (int) Math.ceil((double) totalCount / limit); %>
@@ -54,14 +55,14 @@
     <input type="hidden" id="hidPage" value="<%= bookPage %>"/>
     <input type="hidden" id="hidTotalPage" value="<%= totalPage %>"/>
 
-    <form class="form-inline" action="/bookList">
+    <form class="form-inline" id="frmBookList" action="/bookList">
         <input type="hidden" name="limit" value="<%= limit %>"/>
 
         <div class="search" style="margin-top: 10px; margin-bottom: 10px;">
             <div>
                 <div class="form-group">
                     <div class="input-group">
-                        <input type="text" name="search" class="form-control" id="exampleInputAmount" placeholder="검색">
+                        <input type="text" name="search" class="form-control" id="exampleInputAmount" placeholder="검색" value="<%= search %>">
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">검색</button>

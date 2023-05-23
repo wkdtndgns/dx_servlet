@@ -15,7 +15,7 @@ public class ListService {
         return bookDao.getBook(pv);
     }
 
-    public int getBookTotal() throws SQLException {
-        return bookDao.getBookTotal();
+    public int getBookTotal(BookListParamVo pv) throws SQLException {
+        return bookDao.getBookTotal(pv);
     }
 }

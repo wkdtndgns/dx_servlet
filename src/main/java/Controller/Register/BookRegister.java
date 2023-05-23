@@ -17,13 +17,12 @@ import java.sql.SQLException;
 public class BookRegister extends HttpServlet  {
 
     RegisterService registerService = new RegisterService();
-
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/bookRegister.html").forward(request, response);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("doPost call!!!!");
+        request.setCharacterEncoding("utf-8");
         Book book = new Book();
         book.setCategory1(Integer.parseInt(request.getParameter("category1")));
         book.setCategory2(Integer.parseInt(request.getParameter("category2")));
@@ -41,6 +40,6 @@ public class BookRegister extends HttpServlet  {
             throw new RuntimeException(e);
         }
 
-        response.sendRedirect("/");
+        response.sendRedirect("/bookList");
     }
 }

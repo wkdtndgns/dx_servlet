@@ -27,7 +27,6 @@ public class BookDao {
         statement.setInt(4, (pv.getPage() - 1) * pv.getLimit());
         statement.setInt(5, pv.getLimit());
 
-        System.out.println(statement);
         ResultSet resultSet = statement.executeQuery();
         LinkedList<Book> liBook = new LinkedList<>();
 
@@ -48,16 +47,20 @@ public class BookDao {
         return liBook;
     }
 
-    public int getBookTotal() throws SQLException {
+    public int getBookTotal(BookListParamVo pv) throws SQLException {
         JdbcComm jdbc = new JdbcComm();
         int count = 0;
         String query = "SELECT COUNT(*) AS 'count' " +
-                "FROM t_book;";
+                "FROM t_book\n" +
+                "WHERE book_name LIKE ?" +
+                "   OR author LIKE ?" +
+                "   OR summary LIKE ?;";
 
 
         PreparedStatement statement = jdbc.getConnection().prepareStatement(query);
-        System.out.println(statement);
-
+        statement.setString(1, "%" + pv.getSearch() + "%");
+        statement.setString(2, "%" + pv.getSearch() + "%");
+        statement.setString(3, "%" + pv.getSearch() + "%");
         ResultSet resultSet = statement.executeQuery();
         if (resultSet.next()) {
             count = resultSet.getInt("count");

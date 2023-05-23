@@ -15,7 +15,6 @@ $(document).ready(function() {
     // 페이지 링크 생성
     for (var i = 1; i <= totalPages; i++) {
 
-        console.log(i,currentPage);
         var $pageLink = $("<li>").append($("<a>").attr("href", "#").text(i));
 
         // 현재 페이지에 해당하는 링크에 active 클래스 추가
@@ -31,6 +30,6 @@ $(document).ready(function() {
         var clickedPage = $(this).text();
 
         // 페이지 링크 클릭 시 해당 페이지로 이동 (예시: URL에 page 파라미터 추가)
-        window.location.href = "?page=" + clickedPage;
+        window.location.href = "?page=" + clickedPage + "&"+ $('#frmBookList').serialize();
     });
 });
