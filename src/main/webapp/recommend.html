@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/main.js"></script>
+    <meta charset="utf-8">
+    <title> Main </title>
+</head>
+<script>
+    $(document).ready(function () {
+        document.getElementById('myFile').addEventListener('change', function (e) {
+            var file = e.target.files[0];
+            $('.divFile').html('');
+
+            $('.spnFile').text(e.target.files[0].name);
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                var contents = e.target.result;
+                $('.divFile').append('<span> ' +  contents +'</span>')
+            };
+
+            reader.readAsText(file);
+        });
+    });
+</script>
+<body>
+<div id="divNav">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">도서관리</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav" id="menu">
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+</div>
+<div class="container" style="margin-top: 83px;">
+
+    <input type="file" id="myFile">
+
+    <div style="margin-top: 20px;">
+
+    </div>
+    <p>파일이름 : <span class="spnFile"></span></p>
+    <div class="divFile">
+
+    </div>
+</div><!-- /.container -->
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+</body>
+</html>

@@ -101,6 +101,17 @@
         <url-pattern>/returnList</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+        <servlet-name>Recommend</servlet-name>
+        <servlet-class>Controller.Recommned.Recommend</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Recommend</servlet-name>
+        <url-pattern>/recommend</url-pattern>
+    </servlet-mapping>
+
     <servlet>
         <servlet-name>delete</servlet-name>
         <servlet-class>com.example.servlet.deleteServlet</servlet-class>
