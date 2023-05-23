@@ -1,8 +1,7 @@
-package Controller.List;
+package Controller.Reivew;
 
 import Dao.Book.Book;
 import Service.List.ListService;
-import com.example.servlet.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,7 +11,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.LinkedList;
 
-public class BookList extends HttpServlet  {
+public class ReviewList extends HttpServlet  {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ListService listService = new ListService();
