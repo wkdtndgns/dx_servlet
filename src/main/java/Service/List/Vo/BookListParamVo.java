@@ -10,15 +10,15 @@ public class BookListParamVo {
     }
 
     public void setSearch(String search) {
-        Search = search;
+        Search = search == null ? "" : search;
     }
 
     public int getPage() {
         return Page;
     }
 
-    public void setPage(int page) {
-        Page = page;
+    public void setPage(String page) {
+        Page = Integer.parseInt(page == null ? "1" : page);
     }
 
     public int getLimit() {
