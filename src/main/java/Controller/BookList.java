@@ -34,7 +34,7 @@ public class BookList extends HttpServlet {
             request.setAttribute("limit", Limit);
             request.setAttribute("bookList", listService.getBookList(blpv));
             request.setAttribute("totalCount", listService.getBookTotal(blpv));
-            request.getRequestDispatcher("/bookList.jsp").forward(request, response);
+            request.getRequestDispatcher("/bookListForUser.jsp").forward(request, response);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

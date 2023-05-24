@@ -7,13 +7,7 @@
 $(document).ready(function () {
     var menuData = [
         {text: "Home", href: "/"},
-        {text: "도서 등록", href: "/bookRegister"},
         {text: "도서 검색", href: "/bookList"},
-        {text: "도서 대출", href: "/rentList"},
-        {text: "도서 반납", href: "/returnList"},
-        {text: "도서 대출 이력", href: "/rentListHistory"},
-        {text: "도서 리뷰", href: "/reviewList"},
-        {text: "도서 추천", href: "/recommend"},
     ];
 
     var $menu = $("#menu");
