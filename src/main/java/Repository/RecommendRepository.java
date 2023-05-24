@@ -29,6 +29,7 @@ public class RecommendRepository {
 
     public void add(BookRecommend bookRecommend ) {
         // TODO Auto-generated method stub
+        bookRecommendRepository.removeIf(p -> p.getBookId() == bookRecommend.getBookId());
         bookRecommendRepository.add(bookRecommend);
     }
 }
