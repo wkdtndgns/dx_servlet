@@ -5,6 +5,9 @@ import Dao.BookRent.BookRent;
 import java.sql.Date;
 import java.util.LinkedList;
 
+/**
+ * book 레포지토리 클래스다:  어떨때 쓴다
+ */
 public class RentRepository {
 
     private static final RentRepository instance = new RentRepository();

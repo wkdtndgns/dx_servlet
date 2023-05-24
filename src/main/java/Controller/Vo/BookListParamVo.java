@@ -1,4 +1,4 @@
-package Vo;
+package Controller.Vo;
 
 public class BookListParamVo {
     String Search;

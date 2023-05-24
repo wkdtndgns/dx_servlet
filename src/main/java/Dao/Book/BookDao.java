@@ -1,7 +1,7 @@
 package Dao.Book;
 
 import Jdbc.JdbcComm;
-import Vo.BookListParamVo;
+import Controller.Vo.BookListParamVo;
 
 import java.math.BigDecimal;
 import java.sql.*;

@@ -2,7 +2,7 @@ package Service.List;
 
 import Dao.Book.Book;
 import Dao.Book.BookDao;
-import Vo.BookListParamVo;
+import Controller.Vo.BookListParamVo;
 
 import java.sql.SQLException;
 import java.util.LinkedList;

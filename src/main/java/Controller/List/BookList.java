@@ -1,7 +1,7 @@
 package Controller.List;
 
 import Service.List.ListService;
-import Vo.BookListParamVo;
+import Controller.Vo.BookListParamVo;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
