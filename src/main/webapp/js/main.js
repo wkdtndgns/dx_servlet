@@ -13,7 +13,8 @@ $(document).ready(function () {
         {text: "도서 반납", href: "/returnList"},
         {text: "도서 대출 이력", href: "/rentListHistory"},
         {text: "도서 리뷰", href: "/reviewList"},
-        {text: "도서 추천", href: "/recommend"},
+        {text: "키워드 등록", href: "/recommend"},
+        {text: "도서 추천", href: "/recommendList"},
     ];
 
     var $menu = $("#menu");

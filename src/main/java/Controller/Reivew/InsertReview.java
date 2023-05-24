@@ -43,8 +43,7 @@ public class InsertReview extends HttpServlet {
             throw new RuntimeException(e);
         }
         String user_name = req.getParameter("user_name");
-//        String book_name = req.getParameter("book_name");
-//            int id = Integer.parseInt(req.getParameter("id"));
+
         int rate = Integer.parseInt(req.getParameter("rate"));
         String book_name = book.getBookName();
         BookReview bookReview = new BookReview(user_name, book_name, id, rate);

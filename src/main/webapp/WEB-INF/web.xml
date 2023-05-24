@@ -42,7 +42,7 @@
 
     <servlet>
         <servlet-name>BookList</servlet-name>
-        <servlet-class>Controller.BookList</servlet-class>
+        <servlet-class>Controller.List.BookList</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -111,6 +111,17 @@
         <servlet-name>Recommend</servlet-name>
         <url-pattern>/recommend</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RecommendList</servlet-name>
+        <servlet-class>Controller.Recommned.RecommendList</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>RecommendList</servlet-name>
+        <url-pattern>/recommendList</url-pattern>
+    </servlet-mapping>
+
 
     <servlet>
         <servlet-name>delete</servlet-name>

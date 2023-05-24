@@ -1,4 +1,4 @@
-package Controller;
+package Controller.List;
 
 import Dao.Book.Book;
 import Service.List.ListService;

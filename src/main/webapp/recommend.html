@@ -13,17 +13,18 @@
     $(document).ready(function () {
         document.getElementById('myFile').addEventListener('change', function (e) {
             var file = e.target.files[0];
-            var name= e.target.files[0].name;
+            var name = e.target.files[0].name;
             $('.divFile').html('');
 
             $('.spnFile').text(name);
             var reader = new FileReader();
-            console.log(name.split('.')[0]);
 
+            $('.divFile').append('<input type="hidden" name="bookId" value="' + name.split('.')[0] + '"/>');
             reader.onload = function (e) {
-                var contents = e.target.result;
-                $('.divFile').append('<span> ' +  contents +'</span>');
-                $('.divFile').append('<input type="hidden" name="keyword[]" value="' + contents + '"/>');
+                var arr = e.target.result.split('\n');
+                arr.pop();
+                $('.divFile').append('<span> ' + arr.join(',') + '</span>');
+                $('.divFile').append('<input type="hidden" name="keyword" value="' + arr.join(',') + '"/>');
             };
 
             reader.readAsText(file);
@@ -57,10 +58,13 @@
     </div>
     <p>파일이름 : <span class="spnFile"></span></p>
 
-    <form method="post" action="">
+    <form method="post" action="/recommend">
         <div class="divFile">
 
         </div>
+
+
+        <button type="submit" class="btn btn-default">등록</button>
     </form>
 </div><!-- /.container -->
 

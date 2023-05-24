@@ -99,6 +99,22 @@ public class BookDao {
         return result;
     }
 
+    public  String getBookNameByBookId(int book_id) throws SQLException {
+        JdbcComm jdbc = new JdbcComm();
+        Statement statement = jdbc.getConnection().createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT book_name FROM t_book where book_id = " + book_id);
+
+        Book book = new Book();
+        if (resultSet.next()) {
+            book.setBookName(resultSet.getString("book_name"));
+        }
+        resultSet.close();
+        statement.close();
+        jdbc.closeConnection();
+        return book.getBookName();
+    }
+
+
     public BigDecimal getDiscountRate(int book_id) throws SQLException {
         JdbcComm jdbc = new JdbcComm();
         Statement statement = jdbc.getConnection().createStatement();
