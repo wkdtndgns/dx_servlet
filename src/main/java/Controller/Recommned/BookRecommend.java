@@ -6,7 +6,9 @@ public class BookRecommend {
     int bookId;
     String bookName;
     Map<String,String> keyMap;
+    public BookRecommend(){
 
+    }
     public BookRecommend(int bookId, String bookName, Map<String, String> keyMap) {
         this.bookId = bookId;
         this.bookName = bookName;
