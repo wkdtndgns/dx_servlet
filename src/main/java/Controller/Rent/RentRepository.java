@@ -1,12 +1,9 @@
 package Controller.Rent;
 
 import Dao.BookRent.BookRent;
-import com.example.servlet.User;
-import com.example.servlet.UserRepository;
 
 import java.sql.Date;
 import java.util.LinkedList;
-import java.util.Optional;
 
 public class RentRepository {
 

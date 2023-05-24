@@ -1,4 +1,4 @@
-package com.example.servlet;
+package Controller.User;
 
 public class User {
     private String name;

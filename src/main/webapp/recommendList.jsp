@@ -8,7 +8,7 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.LinkedList" %>
-<%@ page import="com.example.servlet.User" %>
+<%@ page import="Controller.User.User" %>
 <%@ page import="Controller.Recommned.BookRecommend" %>
 <%-- userList 변수 선언 --%>
 <% LinkedList<BookRecommend> recommendList = (LinkedList<BookRecommend>) request.getAttribute("list"); %>

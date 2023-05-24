@@ -21,7 +21,7 @@
 
     <servlet>
         <servlet-name>IDinsert</servlet-name>
-        <servlet-class>com.example.servlet.InsertID</servlet-class>
+        <servlet-class>Controller.User.InsertID</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -31,7 +31,7 @@
 
     <servlet>
         <servlet-name>list</servlet-name>
-        <servlet-class>com.example.servlet.ListServlet</servlet-class>
+        <servlet-class>Controller.User.ListServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -125,7 +125,7 @@
 
     <servlet>
         <servlet-name>delete</servlet-name>
-        <servlet-class>com.example.servlet.deleteServlet</servlet-class>
+        <servlet-class>Controller.User.deleteServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>

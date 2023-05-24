@@ -3,8 +3,8 @@ package Service.Rent;
 import Controller.Rent.RentRepository;
 import Dao.Book.*;
 import Dao.BookRent.*;
-import com.example.servlet.User;
-import com.example.servlet.UserRepository;
+import Controller.User.User;
+import Controller.User.UserRepository;
 
 import java.sql.Date;
 import java.sql.SQLException;
