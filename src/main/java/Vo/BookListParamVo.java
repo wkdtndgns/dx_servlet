@@ -1,4 +1,4 @@
-package Service.List.Vo;
+package Vo;
 
 public class BookListParamVo {
     String Search;

@@ -1,4 +1,4 @@
-package Service.Register.Vo;
+package Vo;
 
 public class RegisterBookVo {
     private int category1;

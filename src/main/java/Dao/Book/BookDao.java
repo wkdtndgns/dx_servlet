@@ -1,7 +1,7 @@
 package Dao.Book;
 
 import Jdbc.JdbcComm;
-import Service.List.Vo.BookListParamVo;
+import Vo.BookListParamVo;
 
 import java.math.BigDecimal;
 import java.sql.*;
@@ -11,6 +11,9 @@ import java.util.Scanner;
 public class BookDao {
     public LinkedList<Book> getBook(BookListParamVo pv) throws SQLException {
         JdbcComm jdbc = new JdbcComm();
+
+        // [book_name, author, summary ]
+        // searchAll
         String query = "SELECT book_id, category_1, category_2, qty, book_name, summary, author\n" +
                 "FROM t_book\n" +
                 "WHERE book_name LIKE ?" +
