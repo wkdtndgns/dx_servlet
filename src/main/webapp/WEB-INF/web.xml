@@ -157,4 +157,13 @@
         <url-pattern>/bookUpdate</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>postReview</servlet-name>
+        <servlet-class>Controller.Reivew.InsertReview</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>postReview</servlet-name>
+        <url-pattern>/postReview</url-pattern>
+    </servlet-mapping>
 </web-app>
