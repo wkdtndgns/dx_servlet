@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class BookDao {
     public LinkedList<Book> getBook(BookListParamVo pv) throws SQLException {
         JdbcComm jdbc = new JdbcComm();
-        String query = "SELECT book_id, category_1, category_2, qty, book_name, author\n" +
+        String query = "SELECT book_id, category_1, category_2, qty, book_name, summary, author\n" +
                 "FROM t_book\n" +
                 "WHERE book_name LIKE ?" +
                 "   OR author LIKE ?" +
@@ -36,6 +36,7 @@ public class BookDao {
             book.setCategory1(resultSet.getInt("category_1"));
             book.setCategory2(resultSet.getInt("category_2"));
             book.setBookName(resultSet.getString("book_name"));
+            book.setSummary(resultSet.getString("summary"));
             book.setAuthor(resultSet.getString("author"));
             book.setQty(resultSet.getInt("qty"));
 

@@ -82,6 +82,7 @@
                 <th>카테고리2</th>
                 <th>책이름</th>
                 <th>저자</th>
+                <th>요약</th>
                 <th>수량</th>
             </tr>
             </thead>
@@ -100,6 +101,8 @@
                 <td><%= book.getBookName() %>
                 </td>
                 <td><%= book.getAuthor() %>
+                </td>
+                <td><%= book.getSummary() %>
                 </td>
                 <td><%= book.getQty() %>
                 </td>
