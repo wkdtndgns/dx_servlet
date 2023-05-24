@@ -1,10 +1,10 @@
 package Service.Rent;
 
-import Controller.Rent.RentRepository;
+import Repository.RentRepository;
 import Dao.Book.*;
 import Dao.BookRent.*;
 import Controller.User.User;
-import Controller.User.UserRepository;
+import Repository.UserRepository;
 
 import java.sql.Date;
 import java.sql.SQLException;

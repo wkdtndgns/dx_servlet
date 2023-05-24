@@ -1,7 +1,7 @@
 package Service.Recommend;
 
 import Controller.Recommned.BookRecommend;
-import Controller.Recommned.RecommendRepository;
+import Repository.RecommendRepository;
 import Dao.Book.BookDao;
 
 import java.sql.SQLException;

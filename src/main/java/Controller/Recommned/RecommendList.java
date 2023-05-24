@@ -1,6 +1,6 @@
 package Controller.Recommned;
 
-import Service.Recommend.RecommendService;
+import Repository.RecommendRepository;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

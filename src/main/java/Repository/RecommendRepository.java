@@ -1,9 +1,7 @@
-package Controller.Recommned;
+package Repository;
 
-import Controller.Rent.RentRepository;
-import Dao.BookRent.BookRent;
+import Controller.Recommned.BookRecommend;
 
-import java.sql.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
 

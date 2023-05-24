@@ -1,4 +1,4 @@
-package Controller.Rent;
+package Repository;
 
 import Dao.BookRent.BookRent;
 

@@ -1,4 +1,6 @@
-package Controller.User;
+package Repository;
+
+import Controller.User.User;
 
 import java.util.LinkedList;
 
