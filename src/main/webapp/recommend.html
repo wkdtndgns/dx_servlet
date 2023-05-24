@@ -13,14 +13,17 @@
     $(document).ready(function () {
         document.getElementById('myFile').addEventListener('change', function (e) {
             var file = e.target.files[0];
+            var name= e.target.files[0].name;
             $('.divFile').html('');
 
-            $('.spnFile').text(e.target.files[0].name);
+            $('.spnFile').text(name);
             var reader = new FileReader();
+            console.log(name.split('.')[0]);
 
             reader.onload = function (e) {
                 var contents = e.target.result;
-                $('.divFile').append('<span> ' +  contents +'</span>')
+                $('.divFile').append('<span> ' +  contents +'</span>');
+                $('.divFile').append('<input type="hidden" name="keyword[]" value="' + contents + '"/>');
             };
 
             reader.readAsText(file);
@@ -49,16 +52,16 @@
     </nav>
 </div>
 <div class="container" style="margin-top: 83px;">
-
     <input type="file" id="myFile">
-
     <div style="margin-top: 20px;">
-
     </div>
     <p>파일이름 : <span class="spnFile"></span></p>
-    <div class="divFile">
 
-    </div>
+    <form method="post" action="">
+        <div class="divFile">
+
+        </div>
+    </form>
 </div><!-- /.container -->
 
 <!-- Bootstrap core JavaScript
